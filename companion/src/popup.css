@@ -1,0 +1,46 @@
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff; --fg: #1b1f24; --muted: #596270; --line: #d5dae1; --head: #eef1f5;
+  --ok: #0f6b3a; --no: #a3261f; --accent: #1a56c4; --accent-fg: #ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14181d; --fg: #e8ebef; --muted: #a2abb8; --line: #303843; --head: #1e252d;
+    --ok: #6fd39a; --no: #ff8f87; --accent: #6b9cff; --accent-fg: #0d1117;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 13px/1.45 system-ui, "Segoe UI", sans-serif;
+  min-width: 640px; max-width: 780px; }
+main { padding: 16px; }
+h1 { font-size: 17px; margin: 0 0 6px; }
+h2 { font-size: 14px; margin: 0 0 6px; }
+p { margin: 0 0 8px; }
+.lead, .foot { color: var(--muted); }
+.big { font-size: 15px; font-weight: 600; }
+button { font: inherit; font-weight: 600; padding: 8px 14px; border: 0; border-radius: 6px; cursor: pointer;
+  background: var(--accent); color: var(--accent-fg); margin: 4px 0 12px; }
+button:disabled { opacity: .6; cursor: progress; }
+button:focus-visible { outline: 3px solid var(--fg); outline-offset: 2px; }
+.block { border-top: 1px solid var(--line); padding-top: 10px; margin-top: 10px; }
+.checks { list-style: none; margin: 0; padding: 0; }
+.checks li { display: grid; grid-template-columns: 20px 1fr auto; gap: 8px; padding: 2px 0; }
+.checks .ok .mark, .verdict.ok { color: var(--ok); }
+.checks .no .mark, .verdict.no { color: var(--no); }
+.checks .state { color: var(--muted); }
+.verdict { font-weight: 600; }
+table { width: 100%; border-collapse: collapse; margin: 6px 0 8px; font-size: 12.5px; }
+caption { text-align: left; color: var(--muted); padding-bottom: 4px; }
+th, td { border: 1px solid var(--line); padding: 4px 6px; text-align: left; vertical-align: top;
+  overflow-wrap: anywhere; }
+th { background: var(--head); }
+ul { margin: 0 0 8px; padding-left: 18px; }
+button.secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+.actions { display: flex; gap: 8px; align-items: center; }
+.steps { list-style: none; margin: 0 0 8px; padding: 0; }
+.step { display: grid; grid-template-columns: 20px 1fr auto; gap: 2px 8px; padding: 2px 0; }
+.step .note { grid-column: 2 / 4; color: var(--muted); font-size: 12px; }
+.step .state { color: var(--muted); }
+.step.ok .mark { color: var(--ok); }
+.step.falhou .mark { color: var(--no); }
+.step.andamento .state { color: var(--accent); }

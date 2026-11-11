@@ -1,0 +1,16 @@
+<!doctype html>
+<!-- FICTITIOUS Moodle 4 assignment page (/ava/mod/assign/view.php?id=CMID), a HYPOTHESIS of the real markup: the real
+     AEDB page was never observed. Placeholders {{...}} are filled by tests/test_companion_details.py.
+     Traps: a sesskey, a private comment, a grade and submit buttons that must never be read or triggered. -->
+<html lang="pt-br"><head><meta charset="utf-8"><title>Tarefa sintética {{CMID}} | AVA</title></head>
+<body id="page-mod-assign-view" class="format-tiles path-mod path-mod-assign chrome dir-ltr lang-pt_br course-7653 context-99 cmid-{{CMID}} pagelayout-incourse">
+<div id="page"><div role="main">
+<h2>Tarefa sintética {{CMID}}</h2>
+<div class="activity-information" data-region="activity-information">
+  {{DATES}}
+</div>
+{{STATUS}}
+<form method="post" action="/ava/mod/assign/view.php"><input type="hidden" name="sesskey" value="SEGREDO-SESSKEY-123">
+  <input type="hidden" name="action" value="editsubmission">
+  <button type="submit" onclick="window.__clicks.push('enviar-tarefa')">Adicionar envio</button></form>
+</div></div></body></html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<!-- Fictitious page behind the "Atividades Avaliativas" card: AV1 (collapsed) and AV2 (open). Every
+     dangerous control inside the activities records its click in window.__clicks. -->
+<html lang="pt-br"><head><meta charset="utf-8">
+<title>Curso: 4º P CURSO FICTÍCIO - Modelagem Fictícia | AVA Fictício</title>
+<style>.collapse:not(.show){display:none}.accesshide{position:absolute;left:-10000px}</style>
+</head>
+<body class="path-course-view course-42 format-topics">
+<nav class="navbar"><div class="usermenu"><a id="user-menu-toggle" href="#">Estudante fictício</a></div></nav>
+<header id="page-header"><h1>4º P CURSO FICTÍCIO - Modelagem Fictícia</h1></header>
+<div id="region-main"><div role="main">
+<div class="card"><h3 class="card-title">Trilhas de Aprendizagem</h3>
+  <a href="/ava/course/view.php?id=42&amp;section=2" onclick="window.__clicks.push('dest-card:trilhas')">Abrir</a></div>
+<ul class="topics">
+  <li class="section course-section" id="section-4" data-for="section">
+    <div class="course-section-header">
+      <button type="button" class="btn icons-collapse-expand collapsed" data-toggle="collapse" aria-expanded="false"
+              aria-controls="collapse-av1"><span class="accesshide">Abrir</span>▸</button>
+      <h3 class="sectionname">AV1</h3></div>
+    <div id="collapse-av1" class="collapse"><ul>
+      <li class="activity resource modtype_resource" data-for="cmitem"><div class="activityname">
+        <a href="/ava/mod/resource/view.php?id=21"><span class="instancename">Slides AV1 fictícios</span></a></div>
+        <a href="/ava/pluginfile.php/1/mod_resource/content/1/slides.pdf" download
+           onclick="window.__clicks.push('baixar')">Baixar arquivo</a></li>
+      <li class="activity assign modtype_assign" data-for="cmitem"><div class="activityname">
+        <a href="/ava/mod/assign/view.php?id=22"><span class="instancename">Trabalho AV1 fictício</span></a></div>
+        <div data-region="activity-dates" class="activity-dates"><div><div><strong>Vencimento:</strong> terça, 20 out 2026, 23:59</div></div></div>
+        <button type="submit" class="btn" data-action="toggle-manual-completion" aria-expanded="false" aria-controls="done"
+                onclick="window.__clicks.push('concluir')">Marcar como concluído</button>
+        <button type="button" class="btn" onclick="window.__clicks.push('enviar')">Enviar tarefa</button></li>
+    </ul></div>
+  </li>
+  <li class="section course-section" id="section-5" data-for="section">
+    <div class="course-section-header"><h3 class="sectionname">AV2</h3></div>
+    <ul>
+      <li class="activity quiz modtype_quiz" data-for="cmitem"><div class="activityname">
+        <a href="/ava/mod/quiz/view.php?id=31"><span class="instancename">Prova AV2 fictícia</span></a></div>
+        <div class="activity-dates"><div><div>Fecha: 25 out 2026, 18:00</div></div></div>
+        <button type="button" class="btn" onclick="window.__clicks.push('responder')">Tentar responder agora</button></li>
+      <li class="activity page modtype_page" data-for="cmitem"><div class="activityname">
+        <a href="/ava/mod/page/view.php?id=32"><span class="instancename">Resumo AV2 fictício</span></a></div></li>
+    </ul>
+  </li>
+</ul>
+</div></div>
+<script>
+window.__clicks = [];
+document.querySelectorAll('[data-toggle="collapse"]').forEach(control => control.addEventListener('click', () => {
+  window.__clicks.push('AV1');
+  const region = document.getElementById(control.getAttribute('aria-controls'));
+  const open = region.classList.toggle('show'); control.setAttribute('aria-expanded', String(open));
+}));
+</script>
+</body></html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<!-- Fictitious course home made of navigation cards, modelled on the reported AEDB home. The tokens
+     {{AV_CARD}} and {{PANEL}} are replaced by the tests to build each navigation variant. Every control
+     records its click in window.__clicks, so tests can prove which ones were ever activated. -->
+<html lang="pt-br"><head><meta charset="utf-8">
+<title>Curso: 4º P CURSO FICTÍCIO - Modelagem Fictícia | AVA Fictício</title>
+<style>.hero{min-height:200px}.card{display:block;margin:6px}</style>
+</head>
+<body class="path-course-view course-42">
+<nav class="navbar"><div class="usermenu"><a id="user-menu-toggle" href="#">Estudante fictício</a></div></nav>
+<header id="page-header"><h1>4º P CURSO FICTÍCIO - Modelagem Fictícia</h1></header>
+<div id="region-main"><div role="main">
+<div class="hero">
+  <div class="card"><h3 class="card-title">Informações da Disciplina</h3>
+    <a href="/ava/course/view.php?id=42&amp;section=1" onclick="window.__clicks.push('card:info')">Abrir</a></div>
+  <div class="card"><h3 class="card-title">Trilhas de Aprendizagem</h3>
+    <a href="/ava/course/view.php?id=42&amp;section=2" onclick="window.__clicks.push('card:trilhas')">Abrir</a></div>
+  {{AV_CARD}}
+  <div class="card"><h3 class="card-title">Feedback das Aulas</h3>
+    <a href="/ava/mod/feedback/view.php?id=77" onclick="window.__clicks.push('card:feedback')">Abrir</a></div>
+  <div class="card"><h3 class="card-title">Fale com o Professor</h3>
+    <button type="button" onclick="window.__clicks.push('card:professor'); location.href='/ava/message/index.php'">Falar</button></div>
+</div>
+{{PANEL}}
+</div></div>
+<script>window.__clicks = [];</script>
+</body></html>

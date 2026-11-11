@@ -1,0 +1,75 @@
+<!doctype html>
+<!-- Fictitious Moodle 4-like course: AV1/AV2 start collapsed. Every control records its click in
+     window.__clicks so tests can prove that only section expanders are ever activated. -->
+<html lang="pt-br"><head><meta charset="utf-8">
+<title>Curso: 4º P CURSO FICTÍCIO - Modelagem Fictícia | AVA Fictício</title>
+<style>.collapse:not(.show){display:none}.accesshide{position:absolute;left:-10000px}</style>
+</head>
+<body class="format-topics path-course-view course-42 pagelayout-course">
+<nav class="navbar"><div class="usermenu"><a id="user-menu-toggle" href="#">Estudante fictício</a></div></nav>
+<header id="page-header"><h1>4º P CURSO FICTÍCIO - Modelagem Fictícia</h1></header>
+<div id="region-main"><div role="main"><ul class="topics">
+
+<li class="section course-section" id="section-0" data-for="section" data-sectionid="0">
+  <div class="course-section-header"><h3 class="sectionname">Geral</h3></div>
+  <ul><li class="activity forum modtype_forum" data-for="cmitem"><div class="activityname">
+    <a href="/ava/mod/forum/view.php?id=11"><span class="instancename">Avisos fictícios</span></a></div></li></ul>
+</li>
+
+<li class="section course-section" id="section-1" data-for="section" data-sectionid="1">
+  <div class="course-section-header">
+    <button type="button" class="btn icons-collapse-expand collapsed" data-toggle="collapse"
+            data-bs-toggle="collapse" data-bs-target="#coursecontentcollapse1" aria-expanded="false"
+            aria-controls="coursecontentcollapse1"><span class="accesshide">Abrir seção</span>▸</button>
+    <h3 class="sectionname">AV1</h3>
+    <div class="section-actions">
+      <button type="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false"
+              aria-controls="menu-av1" onclick="window.__clicks.push('menu-editar')">Editar</button>
+      <div class="dropdown-menu" id="menu-av1"><a href="#" onclick="window.__clicks.push('excluir-secao')">Excluir seção</a></div>
+    </div>
+  </div>
+  <div id="coursecontentcollapse1" class="collapse"><ul>
+    <li class="activity resource modtype_resource" data-for="cmitem"><div class="activityname">
+      <a href="/ava/mod/resource/view.php?id=21&amp;sesskey=SECRET"><span class="instancename">Slides AV1 fictícios</span></a></div>
+      <a href="/ava/pluginfile.php/1/mod_resource/content/1/slides.pdf" download aria-expanded="false" aria-controls="dl21"
+         onclick="window.__clicks.push('baixar')">Baixar arquivo</a></li>
+    <li class="activity assign modtype_assign" data-for="cmitem"><div class="activityname">
+      <a href="/ava/mod/assign/view.php?id=22"><span class="instancename">Trabalho AV1 fictício</span></a></div>
+      <div data-region="activity-dates" class="activity-dates"><div class="description-inner">
+        <div><strong>Vencimento:</strong> terça, 20 out 2026, 23:59</div></div></div>
+      <button type="submit" class="btn" data-action="toggle-manual-completion" aria-expanded="false"
+              aria-controls="done22" onclick="window.__clicks.push('concluir')">Marcar como concluído</button>
+      <button type="button" class="btn" onclick="window.__clicks.push('enviar')">Enviar trabalho</button></li>
+  </ul></div>
+</li>
+
+<li class="section course-section" id="section-2" data-for="section" data-sectionid="2">
+  <div class="course-section-header">
+    <a href="#coursecontentcollapse2" class="icons-collapse-expand collapsed" role="button" data-toggle="collapse"
+       aria-expanded="false" aria-controls="coursecontentcollapse2"><h3 class="sectionname">AV2</h3></a>
+  </div>
+  <div id="coursecontentcollapse2" class="collapse" data-lazy="1"></div>
+</li>
+
+</ul></div></div>
+<script>
+window.__clicks = [];
+const LAZY = '<ul>' +
+  '<li class="activity quiz modtype_quiz" data-for="cmitem"><div class="activityname"><a href="/ava/mod/quiz/view.php?id=31">' +
+  '<span class="instancename">Prova AV2 fictícia</span></a></div><div class="activity-dates"><div><div>Fecha: 25 out 2026, 18:00</div></div></div></li>' +
+  '<li class="activity page modtype_page" data-for="cmitem"><div class="activityname"><a href="/ava/mod/page/view.php?id=32">' +
+  '<span class="instancename">Resumo AV2 fictício</span></a></div></li></ul>';
+document.querySelectorAll('[data-toggle="collapse"]').forEach(control => control.addEventListener('click', ev => {
+  ev.preventDefault();
+  const region = document.getElementById(control.getAttribute('aria-controls'));
+  window.__clicks.push(control.closest('.section').querySelector('.sectionname').textContent.trim());
+  const open = region.classList.toggle('show');
+  control.setAttribute('aria-expanded', String(open));
+  control.classList.toggle('collapsed', !open);
+  if (open && region.dataset.lazy === '1' && !region.dataset.loaded) {
+    region.dataset.loaded = '1'; region.setAttribute('aria-busy', 'true');
+    setTimeout(() => { region.innerHTML = LAZY; region.removeAttribute('aria-busy'); }, 450);
+  }
+}));
+</script>
+</body></html>

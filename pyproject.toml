@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "campus-ai-local"
+version = "0.1.0"
+description = "Assistente acadêmico Windows para Moodle, Gmail e Obsidian"
+requires-python = ">=3.11"
+dependencies = [
+  "PySide6>=6.7,<7",
+  "requests>=2.31,<3",
+  "keyring>=25,<27",
+  "google-api-python-client>=2.100,<3",
+  "google-auth-oauthlib>=1.2,<2",
+  "google-auth-httplib2>=0.2,<1"
+]
+
+[project.optional-dependencies]
+build = ["pyinstaller>=6.10,<7"]
+browser = ["playwright>=1.63,<2"]
+
+[project.scripts]
+campus-ai = "campus_ai.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["campus_ai*"]

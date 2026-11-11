@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Campus AI Companion (validação local)",
+  "version": "0.5.4",
+  "description": "Rascunho local, não publicado. Mostra, num popup, os módulos da seção Atividades Avaliativas da AEDB depois do seu clique e pode abrir esse cartão. Nesta versão (pré-visualização) não salva nem envia nada.",
+  "minimum_chrome_version": "120",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiotQetcCWZek5TkZ4VndJo48KhmIO5zm88GTZa6d53frAjP6Ne2KaRrT/J+rTYjTo4zDSclZ1k+PuGh+BjXdHlraoQej1zbKo0B0UaO/2Dsc34oes6y2H98LbtO4K0YKuEZRUzW/XORkeXNFxpsNnEb8VBgK4EGZsYGVzQMU7zJegoOgEcOMPtKVpEUBJrjjyANzSHBjgRJlg1PrlW991cLuOUs8eTtbCsIaFByxDvWzsIKYwRmRCi74m12VTM4As+rPWQK7/VYHEO9R2zm6YIj2LVb/SDFL/ooGhuceQacos15NQ161AgAJfkWwzdSrtOFfKX0nhs8EgNv1UGi6xQIDAQAB",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_title": "Campus AI: pré-visualizar esta página",
+    "default_popup": "src/popup.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; connect-src 'none'; form-action 'none'; base-uri 'none'"
+  }
+}

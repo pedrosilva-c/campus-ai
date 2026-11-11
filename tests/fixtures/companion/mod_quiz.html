@@ -1,0 +1,14 @@
+<!doctype html>
+<!-- FICTITIOUS Moodle 4 quiz page (/ava/mod/quiz/view.php?id=CMID), a HYPOTHESIS of the real markup (never observed on
+     the AEDB). Traps: a grade, a sesskey and the start/continue attempt form, which must never be triggered. -->
+<html lang="pt-br"><head><meta charset="utf-8"><title>Questionário sintético {{CMID}} | AVA</title></head>
+<body id="page-mod-quiz-view" class="format-tiles path-mod path-mod-quiz chrome dir-ltr lang-pt_br course-7653 context-98 cmid-{{CMID}} pagelayout-incourse">
+<div id="page"><div role="main">
+<h2>Questionário sintético {{CMID}}</h2>
+<div class="activity-information" data-region="activity-information">{{DATES}}</div>
+<div class="box quizinfo"><p>Tentativas permitidas: 2</p><p>Método de avaliação: Nota mais alta</p></div>
+{{ATTEMPTS}}
+<form method="post" action="/ava/mod/quiz/startattempt.php"><input type="hidden" name="cmid" value="{{CMID}}">
+  <input type="hidden" name="sesskey" value="SEGREDO-SESSKEY-456">
+  <button type="submit" onclick="window.__clicks.push('tentativa')">Continuar a última tentativa</button></form>
+</div></div></body></html>

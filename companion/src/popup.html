@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus AI Companion</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <h1>Campus AI Companion</h1>
+    <p class="lead"><strong>Sincronizar disciplina:</strong> a partir da página inicial da Modelagem UML, abre o
+      cartão <strong>Atividades Avaliativas</strong> (um único clique no cartão), lê os módulos e salva no Campus AI.
+      Só acontece quando você clica aqui. Nada é enviado a serviços externos nem alterado no Moodle. Mantenha esta
+      janela aberta até terminar.</p>
+    <div class="actions">
+      <button id="sync" type="button">Sincronizar disciplina</button>
+      <button id="cancel" type="button" class="secondary" hidden>Cancelar</button>
+    </div>
+    <p class="lead"><strong>Experimental — Sincronizar seções autorizadas:</strong> lista os cartões da disciplina e
+      lê, um após o outro, somente as seções acadêmicas autorizadas. Hoje só Atividades Avaliativas está autorizada.</p>
+    <button id="sync-course" type="button" class="secondary">Sincronizar seções autorizadas (experimental)</button>
+    <p class="lead">Modo manual: abra a seção você mesmo e use <strong>Ler esta página</strong>; depois, se quiser,
+      <strong>Salvar no Campus AI</strong>.</p>
+    <button id="read" type="button" class="secondary">Ler esta página</button>
+    <div id="progress" aria-live="polite"></div>
+    <div id="result" aria-live="polite"></div>
+  </main>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

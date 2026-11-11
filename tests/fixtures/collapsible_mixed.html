@@ -1,0 +1,49 @@
+<!doctype html>
+<!-- Fictitious course with one safe expander (AV1) and four sections that must be left intact:
+     ambiguous, unsafe (download link / control inside a form) and without any control. -->
+<html lang="pt-br"><head><meta charset="utf-8">
+<title>Curso: 4º P CURSO FICTÍCIO - Modelagem Fictícia | AVA Fictício</title>
+<style>.collapse:not(.show){display:none}</style>
+</head>
+<body class="path-course-view course-42">
+<nav class="navbar"><div class="usermenu"><a id="user-menu-toggle" href="#">Estudante fictício</a></div></nav>
+<header id="page-header"><h1>4º P CURSO FICTÍCIO - Modelagem Fictícia</h1></header>
+<div id="region-main"><div role="main"><ul class="topics">
+
+<li class="section" id="section-0" data-for="section"><h3 class="sectionname">Geral</h3>
+  <ul><li class="activity page modtype_page" data-for="cmitem"><a href="/ava/mod/page/view.php?id=11">Boas-vindas fictícia</a></li></ul></li>
+
+<li class="section" id="section-1" data-for="section"><h3 class="sectionname">AV1</h3>
+  <button type="button" data-toggle="collapse" aria-expanded="false" aria-controls="r1">Abrir</button>
+  <div id="r1" class="collapse"><ul><li class="activity resource modtype_resource" data-for="cmitem">
+    <a href="/ava/mod/resource/view.php?id=21">Slides AV1 fictícios</a></li></ul></div></li>
+
+<li class="section" id="section-3" data-for="section"><h3 class="sectionname">AV3 ambígua</h3>
+  <button type="button" aria-expanded="false" aria-controls="r3a" onclick="window.__clicks.push('AV3-a')">Parte A</button>
+  <button type="button" aria-expanded="false" aria-controls="r3b" onclick="window.__clicks.push('AV3-b')">Parte B</button>
+  <div id="r3a" class="collapse"><ul><li class="activity page modtype_page" data-for="cmitem"><a href="/ava/mod/page/view.php?id=41">Conteúdo A fictício</a></li></ul></div>
+  <div id="r3b" class="collapse"><ul><li class="activity page modtype_page" data-for="cmitem"><a href="/ava/mod/page/view.php?id=42">Conteúdo B fictício</a></li></ul></div></li>
+
+<li class="section" id="section-4" data-for="section"><h3 class="sectionname">AV4 download</h3>
+  <a href="/ava/pluginfile.php/1/mod_resource/content/1/x.pdf" download role="button" aria-expanded="false"
+     aria-controls="r4" onclick="window.__clicks.push('AV4-download')">Abrir AV4</a>
+  <div id="r4" class="collapse"><ul><li class="activity page modtype_page" data-for="cmitem"><a href="/ava/mod/page/view.php?id=51">Conteúdo AV4 fictício</a></li></ul></div></li>
+
+<li class="section" id="section-5" data-for="section"><h3 class="sectionname">AV5 sem controle</h3>
+  <div class="collapse"><ul><li class="activity page modtype_page" data-for="cmitem"><a href="/ava/mod/page/view.php?id=61">Conteúdo AV5 fictício</a></li></ul></div></li>
+
+<li class="section" id="section-6" data-for="section"><h3 class="sectionname">AV6 formulário</h3>
+  <form onsubmit="return false"><button type="button" aria-expanded="false" aria-controls="r6"
+    onclick="window.__clicks.push('AV6-form')">Abrir AV6</button></form>
+  <div id="r6" class="collapse"><ul><li class="activity page modtype_page" data-for="cmitem"><a href="/ava/mod/page/view.php?id=71">Conteúdo AV6 fictício</a></li></ul></div></li>
+
+</ul></div></div>
+<script>
+window.__clicks = [];
+document.querySelectorAll('#section-1 [data-toggle="collapse"]').forEach(control => control.addEventListener('click', () => {
+  window.__clicks.push('AV1');
+  const region = document.getElementById(control.getAttribute('aria-controls'));
+  const open = region.classList.toggle('show'); control.setAttribute('aria-expanded', String(open));
+}));
+</script>
+</body></html>

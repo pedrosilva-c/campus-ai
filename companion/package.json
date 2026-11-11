@@ -1,0 +1,9 @@
+{
+  "name": "campus-ai-companion",
+  "private": true,
+  "type": "module",
+  "description": "Rascunho local. Sem dependências: testes com node --test.",
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  }
+}

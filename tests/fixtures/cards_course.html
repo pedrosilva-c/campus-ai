@@ -1,0 +1,77 @@
+<!doctype html>
+<!-- Fictitious course page modelled on the reported AEDB home: a hero area of navigation cards that
+     carry the class "section" (layout, not academic), real sections far below the fold, AV2 injected
+     only after the page is scrolled, one section whose header is a plain div (no recognizable
+     expander) and one section with no content at all. Every control records its click. -->
+<html lang="pt-br"><head><meta charset="utf-8">
+<title>Curso: 4º P CURSO FICTÍCIO - Modelagem Fictícia | AVA Fictício</title>
+<style>.collapse:not(.show){display:none}.closed{display:none}.hero{min-height:700px}.spacer{height:2600px}</style>
+</head>
+<body class="format-topics path-course-view course-42">
+<nav class="navbar"><div class="usermenu"><a id="user-menu-toggle" href="#">Estudante fictício</a></div></nav>
+<header id="page-header"><h1>4º P CURSO FICTÍCIO - Modelagem Fictícia</h1></header>
+<div id="region-main"><div role="main">
+
+<section class="hero">
+  <div class="section card" id="card-avisos"><h3>Avisos</h3>
+    <a href="/ava/mod/forum/view.php?id=901" onclick="window.__clicks.push('card:avisos'); return false">Abrir avisos</a></div>
+  <div class="section card" id="card-lattes"><h3>Currículo Lattes</h3>
+    <a href="https://lattes.example.invalid/x" onclick="window.__clicks.push('card:lattes'); return false">Ver currículo</a></div>
+  <div class="section card"><h3>Informações da Disciplina</h3><p>Texto informativo fictício.</p></div>
+  <div class="section card"><h3>Trilhas de Aprendizagem</h3>
+    <a href="/ava/course/view.php?id=42&amp;section=7" onclick="window.__clicks.push('card:trilhas'); return false">Abrir trilhas</a></div>
+  <div class="section card"><h3>Atividades Avaliativas</h3>
+    <a href="#section-1" onclick="window.__clicks.push('card:avaliativas'); return false">Ir para AV1</a></div>
+</section>
+
+<div class="spacer"></div>
+
+<ul class="topics" id="topics">
+  <li class="section course-section" id="section-1" data-for="section">
+    <div class="course-section-header">
+      <button type="button" class="btn icons-collapse-expand collapsed" data-toggle="collapse" aria-expanded="false"
+              aria-controls="collapse1"><span class="accesshide">Abrir</span>▸</button>
+      <h3 class="sectionname">AV1</h3></div>
+    <div id="collapse1" class="collapse"><ul>
+      <li class="activity resource modtype_resource" data-for="cmitem"><div class="activityname">
+        <a href="/ava/mod/resource/view.php?id=21"><span class="instancename">Slides AV1 fictícios</span></a></div></li>
+      <li class="activity assign modtype_assign" data-for="cmitem"><div class="activityname">
+        <a href="/ava/mod/assign/view.php?id=22"><span class="instancename">Trabalho AV1 fictício</span></a></div>
+        <div data-region="activity-dates" class="activity-dates"><div><div><strong>Vencimento:</strong> terça, 20 out 2026, 23:59</div></div></div></li>
+    </ul></div>
+  </li>
+  <li class="section course-section" id="section-3" data-for="section">
+    <div class="course-section-header"><div class="hdr" onclick="window.__clicks.push('AV3-header')"><h3 class="sectionname">AV3</h3></div></div>
+    <div class="closed"><ul><li class="activity page modtype_page" data-for="cmitem">
+      <a href="/ava/mod/page/view.php?id=41">Conteúdo AV3 fictício</a></li></ul></div>
+  </li>
+  <li class="section course-section" id="section-4" data-for="section">
+    <div class="course-section-header"><h3 class="sectionname">AV4 vazia</h3></div>
+  </li>
+</ul>
+</div></div>
+<script>
+window.__clicks = [];
+document.querySelectorAll('#section-1 [data-toggle="collapse"]').forEach(control => control.addEventListener('click', () => {
+  window.__clicks.push('AV1');
+  const region = document.getElementById(control.getAttribute('aria-controls'));
+  const open = region.classList.toggle('show'); control.setAttribute('aria-expanded', String(open));
+}));
+// AV2 exists only after the student scrolls (late, dynamically rendered content).
+let loaded = false;
+window.addEventListener('scroll', () => {
+  if (loaded || window.scrollY < 900) return;
+  loaded = true;
+  setTimeout(() => {
+    const li = document.createElement('li');
+    li.className = 'section course-section'; li.id = 'section-2'; li.setAttribute('data-for', 'section');
+    li.innerHTML = '<div class="course-section-header"><h3 class="sectionname">AV2</h3></div><ul>' +
+      '<li class="activity page modtype_page" data-for="cmitem"><a href="/ava/mod/page/view.php?id=31">Resumo AV2 fictício</a></li>' +
+      '<li class="activity quiz modtype_quiz" data-for="cmitem"><div class="activityname"><a href="/ava/mod/quiz/view.php?id=32">' +
+      '<span class="instancename">Prova AV2 fictícia</span></a></div>' +
+      '<div class="activity-dates"><div><div>Fecha: 25 out 2026, 18:00</div></div></div></li></ul>';
+    document.getElementById('topics').insertBefore(li, document.getElementById('section-3'));
+  }, 350);
+});
+</script>
+</body></html>

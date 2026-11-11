@@ -1,0 +1,75 @@
+{
+  "schema": "campus-ai.academic/1",
+  "generated_at": "2026-11-05T19:30:00+00:00",
+  "scope": ["moodle:course:7653"],
+  "coverage": {
+    "state": "parcial",
+    "reasons": ["Dados FICTÍCIOS de teste; nenhuma leitura real da AEDB.", "Trilhas de Aprendizagem não examinada"]
+  },
+  "sources": [
+    {"source": "moodle_navegador", "last_attempt": "2026-11-05T19:30:00+00:00",
+     "last_success": "2026-11-05T19:30:00+00:00", "status": "parcial", "message": "cobertura parcial"},
+    {"source": "gmail", "last_attempt": "2026-11-05T19:30:00+00:00", "last_success": "",
+     "status": "erro_integracao", "message": "Gmail não conectado"}
+  ],
+  "courses": [
+    {"uid": "moodle:course:7653", "moodle_id": "7653", "name": "Modelagem UML",
+     "url": "https://ead.aedb.br/ava/course/view.php?id=7653",
+     "provenance": {"source": "moodle_navegador", "observed_at": "2026-11-05T19:30:00+00:00", "method": "dom",
+                    "route": "/ava/course/view.php?id"},
+     "verification": "confirmado", "confidence": "alta"}
+  ],
+  "sections": [
+    {"uid": "moodle:course:7653:section:s-av1", "course_uid": "moodle:course:7653", "name": "AV1",
+     "position": 1, "state": "aberta",
+     "provenance": {"source": "moodle_navegador", "observed_at": "2026-11-05T19:30:00+00:00", "method": "dom",
+                    "route": "/ava/course/view.php?id&section"},
+     "verification": "confirmado", "confidence": "media"},
+    {"uid": "moodle:course:7653:section:s-av2", "course_uid": "moodle:course:7653", "name": "AV2",
+     "position": 2, "state": "desconhecida",
+     "provenance": {"source": "moodle_navegador", "observed_at": "2026-11-05T19:30:00+00:00", "method": "dom",
+                    "route": "/ava/course/view.php?id&section"},
+     "verification": "parcial", "confidence": "baixa"}
+  ],
+  "materials": [
+    {"uid": "moodle:course:7653:module:9001", "course_uid": "moodle:course:7653",
+     "section_uid": "moodle:course:7653:section:s-av1", "title": "Apostila de diagramas (fictícia)",
+     "kind": "resource", "url": "https://ead.aedb.br/ava/mod/resource/view.php?id=9001",
+     "provenance": {"source": "moodle_navegador", "observed_at": "2026-11-05T19:30:00+00:00", "method": "dom",
+                    "route": "/ava/course/view.php?id&section"},
+     "verification": "confirmado", "confidence": "alta"}
+  ],
+  "activities": [
+    {"uid": "moodle:course:7653:module:9002", "course_uid": "moodle:course:7653",
+     "section_uid": "moodle:course:7653:section:s-av1", "title": "AV1 — Diagrama de classes (fictício)",
+     "kind": "assign", "url": "https://ead.aedb.br/ava/mod/assign/view.php?id=9002",
+     "deadlines": [{"kind": "entrega", "at": "2026-11-10T23:59", "timezone_explicit": false,
+                    "raw": "Vencimento: segunda-feira, 10 nov. 2026, 23:59"}],
+     "submission": "desconhecido",
+     "provenance": {"source": "moodle_navegador", "observed_at": "2026-11-05T19:30:00+00:00", "method": "dom",
+                    "route": "/ava/course/view.php?id&section"},
+     "verification": "confirmado", "confidence": "media"},
+    {"uid": "moodle:course:7653:module:9003", "course_uid": "moodle:course:7653",
+     "section_uid": "moodle:course:7653:section:s-av2", "title": "AV2 — Questionário (fictício)",
+     "kind": "quiz", "url": "https://ead.aedb.br/ava/mod/quiz/view.php?id=9003",
+     "deadlines": [{"kind": "fechamento", "at": "2026-12-01T18:00:00-03:00", "timezone_explicit": true, "raw": ""}],
+     "submission": "nao_enviado",
+     "provenance": {"source": "moodle_navegador", "observed_at": "2026-11-05T19:30:00+00:00", "method": "dom",
+                    "route": "/ava/course/view.php?id&section"},
+     "verification": "confirmado", "confidence": "media"}
+  ],
+  "events": [
+    {"uid": "ical:event:3f2a9c0d1e", "course_uid": "moodle:course:7653", "title": "AV2 fecha (fictício)",
+     "start": "2026-12-01T18:00:00-03:00", "end": "", "kind": "fechamento",
+     "activity_uid": "moodle:course:7653:module:9003",
+     "provenance": {"source": "ical", "observed_at": "2026-11-05T19:30:00+00:00", "method": "ical", "route": ""},
+     "verification": "confirmado", "confidence": "alta"}
+  ],
+  "announcements": [
+    {"uid": "moodle:course:7653:forum:9004", "course_uid": "moodle:course:7653", "title": "Aviso de exemplo (fictício)",
+     "posted_at": "2026-11-03", "channel": "forum", "url": "https://ead.aedb.br/ava/mod/forum/view.php?id=9004",
+     "provenance": {"source": "moodle_navegador", "observed_at": "2026-11-05T19:30:00+00:00", "method": "dom",
+                    "route": "/ava/course/view.php?id"},
+     "verification": "confirmado", "confidence": "media"}
+  ]
+}

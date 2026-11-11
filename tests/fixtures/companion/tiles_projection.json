@@ -1,0 +1,27 @@
+{
+  "projection": "campus-ai-tiles/1",
+  "courseId": "7653",
+  "formatTiles": true,
+  "mode": "secao_pagina",
+  "sectionPage": true,
+  "sectionId": "4242",
+  "sectionName": "",
+  "panelKey": "secao_pagina:4242::10",
+  "docTitle": "Bloco: Atividades Avaliativas | 4º P CURSO FICTÍCIO - Modelagem Fictícia | AVA",
+  "diagnostic": {"reason": "", "tiles": 0, "tilesMatched": 0, "candidates": 0, "visibleCandidates": 0, "openDialogs": 0,
+                 "hiddenDialogs": 0, "dataPreferenceDialogs": 0, "unknownDialogs": 0, "sectionVisible": 1,
+                 "hiddenActivities": 0, "visibleActivitiesOutside": 0, "containers": []},
+  "truncated": false,
+  "entries": [
+    {"label": true},
+    {"modtype": "assign", "cmid": "90001", "title": "Exercício sintético A", "hrefs": ["https://ead.aedb.br/ava/mod/assign/view.php?id=90001"]},
+    {"modtype": "assign", "cmid": "90002", "title": "Exercício sintético B", "hrefs": ["https://ead.aedb.br/ava/mod/forum/view.php?id=55555", "https://ead.aedb.br/ava/mod/assign/view.php?id=90002&forceview=1#topo"]},
+    {"modtype": "assign", "cmid": "90003", "title": "Exercício sintético C", "hrefs": []},
+    {"modtype": "resource_pdf", "cmid": "90004", "title": "AV1 - Gabarito sintético", "hrefs": ["https://ead.aedb.br/ava/mod/resource/view.php?id=90004"]},
+    {"modtype": "assign", "cmid": "90005", "title": "AV1 - Correção sintética", "hrefs": ["https://ead.aedb.br/ava/mod/assign/view.php?id=90005"]},
+    {"label": true},
+    {"modtype": "groupselect", "cmid": "90006", "title": "Grupos para trabalho de AV2 (sintético)", "hrefs": ["https://ead.aedb.br/ava/mod/groupselect/view.php?id=90006"]},
+    {"modtype": "assign", "cmid": "90007", "title": "Tarefa em grupo sintética", "hrefs": ["https://ead.aedb.br/ava/mod/assign/view.php?id=90007"]},
+    {"label": true}
+  ]
+}

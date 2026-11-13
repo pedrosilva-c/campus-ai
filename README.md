@@ -6,7 +6,7 @@
 
 Assistente acadêmico local para Windows. Lê materiais, atividades e prazos de uma disciplina no Moodle e organiza tudo em notas Markdown no Obsidian, com histórico local e alertas de novidades.
 
-**[Portfólio](https://pedrosilva-c.github.io/portfolio/)** · **[Perfil no GitHub](https://github.com/pedrosilva-c)**
+**[Portfólio](https://pedro-osaka.github.io/portfolio/)** · **[Perfil no GitHub](https://github.com/Pedro-Osaka)**
 
 ## Problema
 
@@ -79,7 +79,7 @@ Detalhes e decisões: [`ARCHITECTURE_3.md`](ARCHITECTURE_3.md) · Integração d
 Requisitos: Python 3.11+ e, opcionalmente, Obsidian e Node.js 20+ (para os testes da extensão).
 
 ```powershell
-git clone https://github.com/pedrosilva-c/campus-ai.git
+git clone https://github.com/Pedro-Osaka/campus-ai.git
 cd campus-ai
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\instalar_windows.ps1   # cria a .venv e instala dependências
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\abrir_windows.ps1      # abre a interface
@@ -117,6 +117,6 @@ A suíte redireciona `LOCALAPPDATA` para uma pasta descartável e **falha se qua
 
 ## Autor
 
-**Pedro Henrique da Silva Pereira** · [Portfólio](https://pedrosilva-c.github.io/portfolio/) · [LinkedIn](https://www.linkedin.com/in/pedrosilva-sistemas/)
+**Pedro Henrique da Silva Pereira** · [Portfólio](https://pedro-osaka.github.io/portfolio/) · [LinkedIn](https://www.linkedin.com/in/pedrosilva-sistemas/)
 
 Desenvolvido com auxílio de assistentes de IA (Claude Code, Codex). As decisões de arquitetura, as regras de segurança e a validação por testes são minhas.

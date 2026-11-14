@@ -6,7 +6,6 @@ import os
 import sys
 import tempfile
 import unittest
-from datetime import datetime, timezone
 from pathlib import Path
 from unittest.mock import patch
 
@@ -149,11 +148,19 @@ class ShellTests(unittest.TestCase):
         self.assertIn('antiga', state)                    # T1 is days old: said, not hidden
 
     def test_verified_deadlines_are_listed_most_urgent_first(self):
-        from test_companion_deadlines import VARIETY, with_details
-        now = datetime.now(timezone.utc).isoformat(timespec='seconds').replace('+00:00', 'Z')
+        # VARIETY has fixed due dates written for the fixed clock NOW of test_companion_deadlines
+        # (90003 is "pending, < 72 h" only relative to NOW). Using the real clock made the test change
+        # its answer with the calendar, so the window reads the view with that same NOW.
+        import campus_ai.companion_view as companion_view
+        from test_companion_deadlines import NOW, VARIETY, with_details
+        now = NOW.isoformat(timespec='seconds').replace('+00:00', 'Z')
         data = with_details(snapshot_dict(generated=now),
                             {k: (v[0], v[1], {**v[2], 'checked_at': now}) for k, v in VARIETY.items()})
         SnapshotStore(self.db, allowed_courses=['7653']).save(contract.parse_snapshot(data), received_at=now)
+        real_load_view = companion_view.load_view
+        clock = patch.object(companion_view, 'load_view', lambda path, **kw: real_load_view(path, **{**kw, 'now': NOW}))
+        clock.start()
+        self.addCleanup(clock.stop)
         window = self.window()
         window.navigate('overview')
         texts = [w.text() for w in window.overview_deadlines.findChildren(type(window.info))]

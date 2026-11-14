@@ -76,14 +76,16 @@ Detalhes e decisões: [`ARCHITECTURE_3.md`](ARCHITECTURE_3.md) · Integração d
 
 ## Como executar
 
-Requisitos: Python 3.11+ e, opcionalmente, Obsidian e Node.js 20+ (para os testes da extensão).
+Requisitos: Windows, Python 3.11+ e, opcionalmente, Obsidian e Node.js 20+ (para os testes da extensão).
 
 ```powershell
 git clone https://github.com/Pedro-Osaka/campus-ai.git
 cd campus-ai
-powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\instalar_windows.ps1   # cria a .venv e instala dependências
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\instalar_windows.ps1   # cria a .venv, instala dependências e o Chromium do Playwright
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\abrir_windows.ps1      # abre a interface
 ```
+
+O instalador instala o pacote com o extra `[browser]` (Playwright, usado pela leitura com navegador dedicado e por parte da suíte de testes) e baixa o Chromium do Playwright para dentro da `.venv` (~150 MB). Com `-SemChromium`, o download é pulado: o modo Demonstração e a suíte padrão funcionam, mas a leitura com navegador e os testes opt-in com Chromium, não.
 
 Na interface, abra **Configurações**, escolha a pasta do vault do Obsidian, mantenha o modo **Demonstração** e clique em **Iniciar análise**.
 
@@ -98,12 +100,16 @@ O uso com contas reais (token Moodle, OAuth do Gmail, perfil do navegador) e as 
 
 ## Testes
 
-| Suíte | Resultado (11/11/2026) |
+Resultado em **clone limpo**, seguindo só este README (instalador + `executar_testes.ps1`), em 14/11/2026, Windows 11, Python 3.13.14, Playwright 1.65.2:
+
+| Suíte | Resultado |
 |---|---|
-| Python `unittest` (`tests/`) | **566 testes OK**, 97 pulados: 92 exigem Chromium (opt-in com `CAMPUS_AI_BROWSER_SMOKE=1`), 3 exigem a `.venv` dentro do projeto e 2 são smoke tests manuais |
-| JavaScript `node --test` (`companion/`) | **97 testes OK** |
+| Python `unittest` (`tests/`) | **566 executados: 472 OK, 94 pulados, 0 falhas.** Os 94 pulados são os testes opt-in com Chromium local (`CAMPUS_AI_BROWSER_SMOKE=1`, ou `executar_testes.ps1 -Navegador`) |
+| JavaScript `node --test` (`companion/`) | **97 OK** |
 
 A suíte redireciona `LOCALAPPDATA` para uma pasta descartável e **falha se qualquer dado real mudar** (`tests/test_zzz_real_data_untouched.py`).
+
+**Limitação conhecida do ambiente de teste:** não clone o projeto dentro de `%LOCALAPPDATA%` (por exemplo, numa pasta temporária do Windows). Nesse caso a pasta descartável fica dentro do `LOCALAPPDATA` real e `test_the_data_folder_is_a_throw_away_one` falha de propósito, porque o isolamento deixa de ser comprovável. Em qualquer outra pasta, ele passa.
 
 ## Limitações e status
 

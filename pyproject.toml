@@ -18,7 +18,9 @@ dependencies = [
 
 [project.optional-dependencies]
 build = ["pyinstaller>=6.10,<7"]
-browser = ["playwright>=1.63,<2"]
+# Validado com Playwright 1.63 (Chromium 153). Com 1.65 (Chrome 159), um teste opt-in da extensão
+# muda de resposta; ver "Limitações" no README antes de ampliar a faixa.
+browser = ["playwright>=1.63,<1.64"]
 
 [project.scripts]
 campus-ai = "campus_ai.cli:main"

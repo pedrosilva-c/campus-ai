@@ -106,6 +106,7 @@ Resultado em **clone limpo**, seguindo só este README (instalador + `executar_t
 |---|---|
 | Python `unittest` (`tests/`) | **566 executados: 472 OK, 94 pulados, 0 falhas.** Os 94 pulados são os testes opt-in com Chromium local (`CAMPUS_AI_BROWSER_SMOKE=1`, ou `executar_testes.ps1 -Navegador`) |
 | JavaScript `node --test` (`companion/`) | **97 OK** |
+| Opt-in com Chromium (`executar_testes.ps1 -Navegador`) | **566 OK** com o Chromium 153 do Playwright 1.63 instalado pelo próprio instalador |
 
 A suíte redireciona `LOCALAPPDATA` para uma pasta descartável e **falha se qualquer dado real mudar** (`tests/test_zzz_real_data_untouched.py`).
 
@@ -119,6 +120,7 @@ A suíte redireciona `LOCALAPPDATA` para uma pasta descartável e **falha se qua
 - Os seletores foram ajustados a um tema específico de Moodle (formato "Tiles") e podem precisar de adaptação em outras instalações.
 - A leitura por navegador fica restrita a uma disciplina piloto; "Trilhas de Aprendizagem" ainda não é lida.
 - O Gmail não baixa nem interpreta anexos.
+- **Navegador mais novo muda uma resposta da extensão.** Com Chrome 159 (Playwright 1.65), sem o clique no ícone da barra a extensão continua sem ler nada, mas explica o bloqueio como "aba fora do domínio autorizado" em vez de "sem acesso a esta aba", e o teste `test_without_the_toolbar_click_the_extension_fails_closed` falha. Por isso o Playwright está fixado em 1.63 (Chromium 153), onde a suíte com Chromium passa inteira. Como a extensão roda no Chrome/Edge do próprio aluno, que se atualiza sozinho, essa mensagem precisa ser revista.
 - Não há instalador assinado; o EXE é gerado localmente com PyInstaller.
 
 ## Autor
